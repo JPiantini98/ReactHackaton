@@ -1,0 +1,17 @@
+.DamageRelationsContainer {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.DamageRelationsElement {
+    display: inline-block;
+    width: 180px;
+    padding: 16px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}

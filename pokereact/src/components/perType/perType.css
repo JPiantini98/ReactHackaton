@@ -1,0 +1,71 @@
+.normal, [class = "1"] {
+    background-color: rgb(233, 233, 233);
+}
+
+.fighting,  [class = "2"] {
+    background-color: rgb(116, 39, 39);
+}
+
+.flying,  [class = "3"] {
+    background-color: rgb(191, 236, 241);
+}
+
+.poison,  [class = "4"] {
+    background-color: rgb(120, 10, 148);
+}
+
+.ground,  [class = "5"] {
+    background-color: rgb(224, 168, 103);
+}
+
+.rock,  [class = "6"] {
+    background-color: rgb(100, 68, 20);
+}
+
+.bug,  [class = "7"] {
+    background-color: rgb(173, 161, 52);
+}
+
+.ghost,  [class = "8"] {
+    background-color: rgb(180, 35, 185);
+}
+
+.steel,  [class = "9"] {
+    background-color: rgb(206, 206, 206);
+}
+
+.fire,  [class = "10"] {
+    background-color: rgb(253, 31, 31);
+}
+
+.water,  [class = "11"] {
+    background-color: rgb(24, 115, 233);
+}
+
+.grass,  [class = "12"] {
+    background-color: rgb(72, 189, 43);
+}
+
+.electric,  [class = "13"] {
+    background-color: rgb(243, 240, 73);
+}
+
+.psychic,  [class = "14"] {
+    background-color: rgb(226, 86, 196);
+}
+
+.ice,  [class = "15"] {
+    background-color: rgb(153, 252, 252);
+}
+
+.dragon,  [class = "16"] {
+    background-color: rgb(43, 45, 143);
+}
+
+.dark,  [class = "17"] {
+    background-color: rgba(61, 54, 54, 0.87);
+}
+
+.fairy,  [class = "18"] {
+    background-color: rgb(242, 203, 243);
+}
