@@ -1,17 +1,13 @@
-.Move {
-    display: inline-block;
-    width: 250px;
-    padding: 16px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 10px;
-    box-sizing: border-box;
+.Move-card {
     cursor: pointer;
 }
 
-.Move:hover,
-.Move:active {
-    background-color: #C0DDF5;
+.Move-Card:hover {
+    background-color: aliceblue;
+}
+
+@media only screen and (max-width: 600px) {
+    .Move {
+        font-size: 17px;
+    }
 }

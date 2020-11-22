@@ -1,17 +1,96 @@
-.DamageRelationsContainer {
-    background-color: white;
-    border: 1px solid black;
+.damageRelationsCard {
+    height:  110px;
 }
 
-.DamageRelationsElement {
-    display: inline-block;
-    width: 180px;
-    padding: 16px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    margin: 10px;
-    box-sizing: border-box;
+@media only screen and (max-width: 764px) {
+    .damageRelationsTitle {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .damageRelationsText {
+        font-size: 15px;
+    }
+}
+
+.Type-badge {
     cursor: pointer;
+    border: 3px solid transparent;
+}
+
+.Type-badge:hover {
+    border: 3px solid rgb(163, 227, 238);
+    padding-bottom: -30px;
+}
+
+.normal-badge {
+    background-color: rgb(233, 233, 233);
+}
+
+.fighting-badge {
+    background-color: rgb(116, 39, 39);
+}
+
+.flying-badge {
+    background-color: rgb(146, 210, 240);
+}
+
+.poison-badge {
+    background-color: rgb(120, 10, 148);
+}
+
+.ground-badge {
+    background-color: rgb(224, 168, 103);
+}
+
+.rock-badge {
+    background-color: rgb(100, 68, 20);
+}
+
+.bug-badge {
+    background-color: rgb(173, 161, 52);
+}
+
+.ghost-badge {
+    background-color: rgb(180, 35, 185);
+}
+
+.steel-badge {
+    background-color: rgb(206, 206, 206);
+}
+
+.fire-badge {
+    background-color: rgb(253, 31, 31);
+}
+
+.water-badge {
+    background-color: rgb(24, 115, 233);
+}
+
+.grass-badge {
+    background-color: rgb(72, 189, 43);
+}
+
+.electric-badge {
+    background-color: rgb(226, 224, 92);
+}
+
+.psychic-badge {
+    background-color: rgb(226, 86, 196);
+}
+
+.ice-badge {
+    background-color: rgb(144, 233, 233);
+}
+
+.dragon-badge {
+    background-color: rgb(43, 45, 143);
+}
+
+.dark-badge {
+    background-color: rgba(61, 54, 54, 0.87);
+}
+
+.fairy-badge {
+    background-color: rgb(242, 203, 243);
 }

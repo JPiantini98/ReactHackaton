@@ -1,71 +1,81 @@
-.normal, [class = "1"] {
-    background-color: rgb(233, 233, 233);
+.normal, [class = "container pt-5 1"] {
+    background-image: linear-gradient( 89.9deg,  rgba(208,246,255,1) 0.1%, rgba(255,237,237,1) 47.9%, rgba(255,255,231,1) 100.2% );
 }
 
-.fighting,  [class = "2"] {
-    background-color: rgb(116, 39, 39);
+.fighting,  [class = "container pt-5 2"] {
+    background-image: linear-gradient( 90deg,  rgba(134,15,15,1) 24.9%, rgba(183,10,10,1) 46.9%, rgba(210,70,0,1) 85.1% );
 }
 
-.flying,  [class = "3"] {
-    background-color: rgb(191, 236, 241);
+.flying,  [class = "container pt-5 3"] {
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
 }
 
-.poison,  [class = "4"] {
-    background-color: rgb(120, 10, 148);
+.poison,  [class = "container pt-5 4"] {
+    background-color: #4158D0;
+    background-image: linear-gradient(170deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 
-.ground,  [class = "5"] {
-    background-color: rgb(224, 168, 103);
+.ground,  [class = "container pt-5 5"] {
+    background-image: radial-gradient( circle 691px at 23.3% 17.5%,  rgba(241,122,59,0.91) 0%, rgba(249,224,196,1) 72.3% );
 }
 
-.rock,  [class = "6"] {
-    background-color: rgb(100, 68, 20);
+.rock,  [class = "container pt-5 6"] {
+    background-image: linear-gradient( 280deg,  rgba(238,179,123,1) 8.7%, rgba(216,103,77,1) 47.5%, rgba(114,43,54,1) 89.1% );
 }
 
-.bug,  [class = "7"] {
-    background-color: rgb(173, 161, 52);
+.bug,  [class = "container pt-5 7"] {
+    background-image: linear-gradient( 300deg,  rgba(160,250,141,1) 25.4%, rgba(253,217,182,1) 59% );
 }
 
-.ghost,  [class = "8"] {
-    background-color: rgb(180, 35, 185);
+.ghost,  [class = "container pt-5 8"] {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(47,31,236,0.47) 23.1%, rgba(64,71,121,1) 91.2% );
 }
 
-.steel,  [class = "9"] {
-    background-color: rgb(206, 206, 206);
+.steel,  [class = "container pt-5 9"] {
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
 }
 
-.fire,  [class = "10"] {
-    background-color: rgb(253, 31, 31);
+.fire,  [class = "container pt-5 10"] {
+    background-color: #FFE53B;
+    background-image: linear-gradient(120deg, #FFE53B 0%, #FF2525 74%);
 }
 
-.water,  [class = "11"] {
-    background-color: rgb(24, 115, 233);
+.water,  [class = "container pt-5 11"] {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 
-.grass,  [class = "12"] {
-    background-color: rgb(72, 189, 43);
+.grass,  [class = "container pt-5 12"] {
+    background-color: #85FFBD;
+    background-image: linear-gradient(135deg, #85FFBD 0%, #d8ff7d 100%);
 }
 
-.electric,  [class = "13"] {
-    background-color: rgb(243, 240, 73);
+.electric,  [class = "container pt-5 13"] {
+    background-color: #fbe27e;
+    background-image: linear-gradient(315deg, #fbe27e 0%, #ecf768 100%);
 }
 
-.psychic,  [class = "14"] {
-    background-color: rgb(226, 86, 196);
+.psychic,  [class = "container pt-5 14"] {
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
 }
 
-.ice,  [class = "15"] {
-    background-color: rgb(153, 252, 252);
+.ice,  [class = "container pt-5 15"] {
+    background-image: linear-gradient( 93.1deg,  rgba(238,254,183,1) 19.1%, rgba(169,254,222,1) 53.9%, rgba(90,222,255,1) 92% );
 }
 
-.dragon,  [class = "16"] {
-    background-color: rgb(43, 45, 143);
+.dragon,  [class = "container pt-5 16"] {
+    background-color: #FFFFFF;
+    background-image: linear-gradient(300deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
 }
 
-.dark,  [class = "17"] {
-    background-color: rgba(61, 54, 54, 0.87);
+.dark,  [class = "container pt-5 17"] {
+    background-image: radial-gradient( circle 590px at 8.2% 13.8%,  rgba(18,35,60,1) 0%, #bbb 90% );
 }
 
-.fairy,  [class = "18"] {
-    background-color: rgb(242, 203, 243);
+.fairy,  [class = "container pt-5 18"] {
+    background-color: #f5d3f5;
+    background-image: linear-gradient(135deg, #f5d3f5 0%, #b6d6e6 100%);
 }
