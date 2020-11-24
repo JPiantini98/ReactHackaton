@@ -2,7 +2,6 @@ import React from "react";
 import "./damageRelations.css";
 
 function arrayToSpanElementMapper(array, clickHandler) {
-
     let classList = ["badge", "badge-primary", "ml-1", "mb-2", "Type-badge"];
     let specificClassList;
 
@@ -24,6 +23,10 @@ function arrayToSpanElementMapper(array, clickHandler) {
 // Component
 function DamageRelations(props) {
 
+    if (!props.damageRelationsObject) {
+        return <p>Loading...</p>;
+    }
+
     const doubleDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.double_damage_to, props.typeBadgeClickHandler);
     const halfDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.half_damage_to, props.typeBadgeClickHandler);
     const noDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_to, props.typeBadgeClickHandler);
@@ -32,8 +35,8 @@ function DamageRelations(props) {
     const noDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_from, props.typeBadgeClickHandler);
 
     return(
-        <div className="jumbotron">
-            <h1 className="display-4 text-center damageRelationsTitle">Damage Relations</h1>
+        <div className="jumbotron transparentBackground">
+            <h1 className="display-4 text-center damageRelationsTitle">{props.typeName[0].toUpperCase() + props.typeName.substring(1)} Type</h1>
             <div className="row">
                 <div className="col-12 col-md">
                     <div className="card mt-1 damageRelationsCard">

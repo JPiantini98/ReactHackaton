@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./perType.css";
-import Pokemon from "./pokemon/pokemon.js";
-import Move from "./move/move.js";
+import PokemonList from "./pokemonList/pokemonList.js";
+import MoveList from "./moveList/moveList.js";
 import Menu from "./menu/menu.js";
 import DamageRelations from "./damageRelations/damageRelations";
 
-// custom hook for getting previous value 
+// Custom hook for getting previous value 
 function usePrevious(value) {
     const ref = useRef();
 
@@ -20,7 +20,7 @@ function usePrevious(value) {
 // PerType Component
 function PerType(props) {
 
-    // States
+    //#region States
     const [perTypeState, setPerTypeState] = useState({
         pokemonList: null,
         moveList: null,
@@ -32,8 +32,9 @@ function PerType(props) {
     const [toggleMovesState, setToggleMovesState ] = useState({
         toggleMoves: false 
     });
+    //#endregion States
 
-
+    //#region HTTP Request / API Call
     // Get previous typeName value from the old state
     const previousTypeName = usePrevious(perTypeState.previousTypeName);
 
@@ -56,9 +57,9 @@ function PerType(props) {
             }
         }
     });
+    //#endregion HTTP Request / API Call
 
-
-    // Event handlers
+    //#region Event handlers
     function pokemonButtonClickHandler() {
         setToggleMovesState({
             toggleMoves: false
@@ -82,56 +83,24 @@ function PerType(props) {
             });
         });
     }
+    //#endregion Event handlers
 
-
-    // Variable where <Pokemon /> components will be stored
-    let pokemonThatWillBeRendered;
-    
-    if (perTypeState.pokemonList && !toggleMovesState.toggleMoves) {
-        pokemonThatWillBeRendered = perTypeState.pokemonList.map((element) => {
-            return <Pokemon key={element.pokemon.name} pokemonName={element.pokemon.name} pokemonUrl={element.pokemon.url} />;
-        });
-    } else {
-        pokemonThatWillBeRendered = <p>Loading...</p>;
-    }
-
-
-    // Variable where <Move /> components will be stored
-    let movesThatWillBeRendered;
-
-    if (perTypeState.moveList && toggleMovesState.toggleMoves) {
-        movesThatWillBeRendered = perTypeState.moveList.map((element) => {
-            return <Move key={element.name} moveName={element.name} moveUrl={element.url}/>
-        });
-    } else {
-        movesThatWillBeRendered = <p>Loading...</p>;
-    }
-
-
-    // Variable where <DamageRelations /> components will be stored
-    let damageRelationsThatWillBeRendered;
-
-    if (perTypeState.damageRelations) {
-        damageRelationsThatWillBeRendered = <DamageRelations damageRelationsObject={perTypeState.damageRelations} typeBadgeClickHandler={typeBadgeClickHandler}/>;
-    } else {
-        damageRelationsThatWillBeRendered = <p>Loading...</p>
-    }
-
-
-    // Classes
+    //#region CSS Classes
     let divClassList = ["container", "pt-5", perTypeState.typeNameForClassList].join(' ');
+    //#endregion CSS Classes
 
-    // Render the variables
     return(
         <div className={divClassList}>
-            {damageRelationsThatWillBeRendered}
+
+            <DamageRelations damageRelationsObject={perTypeState.damageRelations} typeName={perTypeState.typeNameForClassList} typeBadgeClickHandler={typeBadgeClickHandler}/>
 
             <div class="container">
-                <div className="row">
-                    {!toggleMovesState.toggleMoves ? 
-                    pokemonThatWillBeRendered : 
-                    movesThatWillBeRendered}
-                </div>
+                <h1 className="display-4 text-center title">{!toggleMovesState.toggleMoves ? "Pokémon" : "Moves"}</h1>
+
+                {!toggleMovesState.toggleMoves ? 
+                <PokemonList listOfPokemonFromState={perTypeState.pokemonList} /> :
+                <MoveList listOfMovesFromState={perTypeState.moveList} /> 
+                }
             </div>
             
             <Menu pokemonButtonClickHandler={pokemonButtonClickHandler} movesButtonClickHandler={movesButtonClickHandler} />

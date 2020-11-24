@@ -2,6 +2,17 @@
     height:  110px;
 }
 
+.damageRelationsTitle {
+    margin-top: -40px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.452);
+    border-radius: 3px;
+}
+
+.transparentBackground {
+    background-color: transparent;
+}
+
 @media only screen and (max-width: 764px) {
     .damageRelationsTitle {
         font-size: 40px;
