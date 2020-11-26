@@ -10,12 +10,17 @@ import { Favorites } from './components/favorites/Favorites';
 import { AboutUs } from './components/aboutUs/AboutUs';
 import { Layout } from './components/layout/Layout';
 import { AppRouter } from './router/AppRouter';
+import  PerType from './components/perType/perType';
+import DetailPokemon from './components/detailPokemon/DetailPokemon';
+
 
 function App() {
   return (
     <>
       <AppRouter/>
-      <Layout />
+      <Layout/>
+      <DetailPokemon/>
+      
     </>
   );
 }
