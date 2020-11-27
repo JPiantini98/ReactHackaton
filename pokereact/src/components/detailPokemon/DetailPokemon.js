@@ -66,7 +66,7 @@ export default function DetailPokemon() {
 
     //Rendering variables
     return(
-        <div class="row mx-auto">
+        <div class="row">
             <Profile image={pokemonData.image} types={pkmTypes}/>
 
             <PokemonData 
