@@ -3,11 +3,21 @@ import axios from 'axios';
 import Profile from './PokemonProfile/PokemonProfile';
 import PokemonData from './PokemonData/PokemonData';
 import '../perType/perType.css';
+import { Redirect } from 'react-router-dom';
 
-export default function DetailPokemon() {
+// Function for making sure that the value passed to URL will be an integer
+function isInt(value) {
+    return !isNaN(value) && 
+           parseInt(Number(value)) == value && 
+           !isNaN(parseInt(value, 10));
+}
+
+export default function DetailPokemon(props) {
     //Variable to store the wanted pokemon (this is just temporary)
-    //to get a different pokemon change the pkmName string or use a number
-    let pkmName = "pikachu";
+    let pkmName = props.match.params.pokemon;
+    
+    //Excludes the 8th generation
+    const highestValidID = 809;
 
     //Constructor to store the data from the api
     const [pokemonData, setPokemonData] = useState({
@@ -19,34 +29,41 @@ export default function DetailPokemon() {
         weight: null,
         abilities: null,
         moves: null,
-    })
+    });
+
+    const [redirectState, setRedirectState] = useState({
+        redirect: null 
+     });
 
     //Make an HTTP request  to the API to get the selected data
-    useEffect(() =>{
+    useEffect(() => {
 
-        if(!pokemonData.abilities){
+        // Prevents invalid URLs if the ID param isn't an integer or outside of a certain range
+        if ( !redirectState.redirect && (!isInt(pkmName) || ( 0 >= +pkmName || +pkmName > highestValidID ))) {
+            setRedirectState({
+                redirect: <Redirect to="/home"/>
+            }); 
+        } else if (!redirectState.redirect && !pokemonData.abilities){
             axios.get(`https://pokeapi.co/api/v2/pokemon/${pkmName}`).then(response =>{
-            console.log(response);
-            setPokemonData({
-                image: response.data.sprites.other['official-artwork'].front_default,
-                id: response.data.id,
-                name: response.data.name,
-                types: response.data.types,
-                height: response.data.height,
-                weight: response.data.weight,
-                abilities: response.data.abilities,
-                moves: response.data.moves
-            })
-        })
+                setPokemonData({
+                    image: response.data.sprites.other['official-artwork'].front_default,
+                    id: response.data.id,
+                    name: response.data.name,
+                    types: response.data.types,
+                    height: response.data.height,
+                    weight: response.data.weight,
+                    abilities: response.data.abilities,
+                    moves: response.data.moves
+                });
+            });
         }
-        
-    })
+    });
 
     //Helpers conditions to access the wanted data from the api
     let pkmTypes;
     if(pokemonData.types){
         pkmTypes = pokemonData.types.map((element) => {
-            return <li class={element.type.name} key={element.type.name} >{element.type.name}</li>
+            return <li className={element.type.name} key={element.type.name} >{element.type.name}</li>
         });
     }
 
@@ -60,13 +77,14 @@ export default function DetailPokemon() {
     let pkmAttack;
     if(pokemonData.moves){
         pkmAttack = pokemonData.moves.map((element) => {
-            return <li class = "list-group-item text-capitalize" key={element.move.name} >{element.move.name}</li>
+            return <li className = "list-group-item text-capitalize" key={element.move.name} >{element.move.name}</li>
         });
     }
 
     //Rendering variables
     return(
-        <div class="row mx-auto">
+        <div className="row mx-auto">
+            {redirectState.redirect}
             <Profile image={pokemonData.image} types={pkmTypes}/>
 
             <PokemonData 

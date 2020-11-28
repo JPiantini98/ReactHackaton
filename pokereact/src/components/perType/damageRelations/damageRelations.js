@@ -1,8 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import "./damageRelations.css";
 
-function arrayToSpanElementMapper(array, clickHandler) {
-    let classList = ["badge", "badge-primary", "ml-1", "mb-2", "Type-badge"];
+function extractIDFromURL(url) {
+    const splitURL = url.split('/');
+    const extractedID = splitURL[splitURL.length - 2];
+    return extractedID;
+}
+
+function arrayToSpanElementMapper(array) {
+    let classList = ["badge", "badge-primary", "ml-1", "mb-2", "text-capitalize", "Type-badge"];
     let specificClassList;
 
     if (array.length > 0) {
@@ -10,8 +18,12 @@ function arrayToSpanElementMapper(array, clickHandler) {
             specificClassList = [...classList];
             specificClassList.push(element.name + "-badge");
             specificClassList = specificClassList.join(' ');
-    
-            return <span key={element.name} className={specificClassList} onClick={() => clickHandler(element.name)}>{element.name[0].toUpperCase() + element.name.substring(1)}</span>
+
+            return (
+                <Link key={element.name} to={"/per-type/" + extractIDFromURL(element.url)}>
+                    <span className={specificClassList}>{element.name}</span>
+                </Link>
+            );
         });
     } else {
         specificClassList = ["badge", "badge-secondary", "mb-2"].join(' ');
@@ -22,17 +34,17 @@ function arrayToSpanElementMapper(array, clickHandler) {
 
 // Component
 function DamageRelations(props) {
-
+    
     if (!props.damageRelationsObject) {
         return <p>Loading...</p>;
     }
 
-    const doubleDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.double_damage_to, props.typeBadgeClickHandler);
-    const halfDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.half_damage_to, props.typeBadgeClickHandler);
-    const noDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_to, props.typeBadgeClickHandler);
-    const doubleDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.double_damage_from, props.typeBadgeClickHandler);
-    const halfDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.half_damage_from, props.typeBadgeClickHandler);
-    const noDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_from, props.typeBadgeClickHandler);
+    const doubleDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.double_damage_to);
+    const halfDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.half_damage_to);
+    const noDamageTo = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_to);
+    const doubleDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.double_damage_from);
+    const halfDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.half_damage_from);
+    const noDamageFrom = arrayToSpanElementMapper(props.damageRelationsObject.no_damage_from);
 
     return(
         <div className="jumbotron transparentBackground">

@@ -3,9 +3,9 @@ import './PokemonProfile.css'
 
 const PokemonProfile = (props) =>{
     return(
-        <div class="col-sm">
-            <img class = "img-fluid" src={props.image} alt="pokemon"/>
-            <ul id="pkmType" class="text-center text-capitalize font-weight-bold" >{props.types}</ul>
+        <div className="col-sm">
+            <img className = "img-fluid" src={props.image} alt="pokemon"/>
+            <ul id="pkmType" className="text-center text-capitalize font-weight-bold" >{props.types}</ul>
         </div>
     )
 }

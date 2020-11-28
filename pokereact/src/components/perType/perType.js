@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+
 import "./perType.css";
 import PokemonList from "./pokemonList/pokemonList.js";
 import MoveList from "./moveList/moveList.js";
@@ -15,45 +17,71 @@ function usePrevious(value) {
     });
 
     return ref.current;
-  }
+}
+
+// Function for making sure that the value passed to URL will be an integer
+function isInt(value) {
+    return !isNaN(value) && 
+           parseInt(Number(value)) == value && 
+           !isNaN(parseInt(value, 10));
+}
 
 // PerType Component
 function PerType(props) {
-
     //#region States
     const [perTypeState, setPerTypeState] = useState({
         pokemonList: null,
         moveList: null,
         previousTypeName: null,
-        typeNameForClassList: null, // Was needed to change CSS class from event handler without triggering useEffect() 
+        typeNameForClassList: null,
         damageRelations: null
     });
 
     const [toggleMovesState, setToggleMovesState ] = useState({
         toggleMoves: false 
     });
+
+    const [redirectState, setRedirectState] = useState({
+       redirect: null 
+    });
     //#endregion States
 
     //#region HTTP Request / API Call
     // Get previous typeName value from the old state
     const previousTypeName = usePrevious(perTypeState.previousTypeName);
+    const highestValidID = 18;
+    
 
     // Make an HTTP request to the API on re-render
     useEffect(() => {
-        if (props.typeName) {
+        if (props.match.params.typeName) {
 
-            // If it is the first time or if a new type has been targetted
-            if (!perTypeState.pokemonList || (perTypeState.previousTypeName && previousTypeName !== props.typeName)) {
+            const typeID = props.match.params.typeName;
 
-                axios.get(`https://pokeapi.co/api/v2/type/${props.typeName}/`).then((response) => {
+            // Prevents invalid URLs if the ID param isn't an integer or outside of a certain range
+            if ( !redirectState.redirect && (!isInt(typeID) || ( 0 >= +typeID || +typeID > highestValidID ))) {
+                setRedirectState({
+                    redirect: <Redirect to="/home"/>
+                }); 
+            // Otherwise, make the API call if it is the first time or if a new type has been targetted
+            } else if (!redirectState.redirect && (!perTypeState.pokemonList || (previousTypeName && previousTypeName !== +typeID))) { 
+                axios.get(`https://pokeapi.co/api/v2/type/${typeID}/`).then((response) => {
                     setPerTypeState({
                         pokemonList: response.data.pokemon,
                         moveList: response.data.moves,
-                        previousTypeName: props.typeName,
-                        typeNameForClassList: props.typeName,
+                        previousTypeName: response.data.id,
+                        typeNameForClassList: response.data.name,
                         damageRelations: response.data.damage_relations
                     });
                 });
+            }
+        }
+
+        //Cleanup
+        return () => {
+
+            if (redirectState.redirect) {
+                setRedirectState({redirect: null});
             }
         }
     });
@@ -71,30 +99,18 @@ function PerType(props) {
             toggleMoves: true
         });
     }
-
-    function typeBadgeClickHandler(type) {
-        axios.get(`https://pokeapi.co/api/v2/type/${type}/`).then((response) => {
-            setPerTypeState({
-                pokemonList: response.data.pokemon,
-                moveList: response.data.moves,
-                previousTypeName: previousTypeName,
-                typeNameForClassList: type,
-                damageRelations: response.data.damage_relations
-            });
-        });
-    }
     //#endregion Event handlers
 
     //#region CSS Classes
     let divClassList = ["container", "pt-5", perTypeState.typeNameForClassList].join(' ');
     //#endregion CSS Classes
-
+    
     return(
         <div className={divClassList}>
-
-            <DamageRelations damageRelationsObject={perTypeState.damageRelations} typeName={perTypeState.typeNameForClassList} typeBadgeClickHandler={typeBadgeClickHandler}/>
-
-            <div class="container">
+            {redirectState.redirect}
+            <DamageRelations damageRelationsObject={perTypeState.damageRelations} typeName={perTypeState.typeNameForClassList} />
+            
+            <div className="container">
                 <h1 className="display-4 text-center title">{!toggleMovesState.toggleMoves ? "Pokémon" : "Moves"}</h1>
 
                 {!toggleMovesState.toggleMoves ? 
