@@ -1,136 +1,31 @@
 import React, { useEffect } from 'react'
 import  { useState } from 'react'
-import { Layout } from '../layout/Layout'
+
 import './homeStyle.css'
-import axios from 'axios'
-import './pokeImages/grass.jpg'
 import './pokeCard/pokeCard.css'
 import PokeCard from './pokeCard/PokeCard'
 
-
-
 export const Home = () => {
-
    return (
-        <Layout >
-            <div>
-                <div className="box">
-
-                    <PokeCard pokemonName="bulbasaur"/>
-
-                </div>
-
-                <div className="box">
-                
-                    <PokeCard pokemonName="rattata"/>
-
-                </div>
-                
-                <div className="box">
-                    
-                    <PokeCard pokemonName="charizard"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="pikachu"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="caterpie"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="gastly"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="dewgong"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="castform-snowy"/>
-                
-                </div>
-                
-                <div className="box">
-
-                    <PokeCard pokemonName="machop"/>
-                
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="tornadus-incarnate"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="ekans"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="sandshrew"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="geodude"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="steelix"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="abra"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="dratini"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="umbreon"/>
-
-                </div>
-
-                <div className="box">
-
-                    <PokeCard pokemonName="clefairy"/>
-
-                </div>
-
-
-
-               
-               
-              
-                
+            <div className="row box">
+                <PokeCard pokemonName="bulbasaur"/>  
+                <PokeCard pokemonName="rattata"/>
+                <PokeCard pokemonName="charizard"/>
+                <PokeCard pokemonName="pikachu"/>
+                <PokeCard pokemonName="caterpie"/>
+                <PokeCard pokemonName="gastly"/>
+                <PokeCard pokemonName="dewgong"/>
+                <PokeCard pokemonName="spheal"/>
+                <PokeCard pokemonName="machop"/>
+                <PokeCard pokemonName="tornadus-incarnate"/>
+                <PokeCard pokemonName="ekans"/>
+                <PokeCard pokemonName="sandshrew"/>
+                <PokeCard pokemonName="geodude"/>
+                <PokeCard pokemonName="steelix"/>   
+                <PokeCard pokemonName="abra"/>
+                <PokeCard pokemonName="dratini"/>
+                <PokeCard pokemonName="umbreon"/>
+                <PokeCard pokemonName="clefairy"/>
             </div>
-        
-         
-        </Layout>
-    )
+    );
 }
