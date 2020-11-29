@@ -1,0 +1,182 @@
+
+
+.card{
+   
+    display: inline-block;
+    justify-content: center;
+    width: 25vw;
+    height: 34vh;
+    margin-top:2vh;
+    margin-left: 1.35546vw;
+    border-top-left-radius: 4.8%;
+    border-top-right-radius: 4.8%;
+   
+    
+    /*margin:0.5em;
+   /* padding: 1em 0.5em 0.5em 0.5em; /* top right bottom left; */
+}
+
+
+.card-title{
+    display: block;
+    font-size: 2.5vw;
+    text-align: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-shadow: 1px 2px 4px gray;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-bottom-left-radius: 4.8% ;
+    border-bottom-right-radius: 4.8% ;
+
+   /* padding: bottom 1em; ;*/
+   
+   
+    
+}
+
+.img{
+    display: inline-block;
+    width: 25vw;
+    height: 34vh;
+    
+
+}
+
+#grass{
+    background-image: url("../pokeImages/grass.jpg");
+    box-shadow: 0px 0px 6px 1px #41D73E;
+    border-color: #41D73E;
+    color: #F9F4F4;
+
+}
+
+#normal{
+    background-image: url("../pokeImages/normal.jpg");
+    box-shadow: 0px 0px 6px 1px #E5C847;
+    border-color:#E5C847 ;
+    color: #F9F4F4;
+}
+
+#fire{
+    background-image: url("../pokeImages/fire.jpg");
+    box-shadow: 0px 0px 6px 1px #8C1D1D;
+    color: #F9F4F4; 
+    border-color: #8C1D1D ;
+}
+
+#electric{
+    background-image: url("../pokeImages/electirc.jpg");
+    box-shadow: 0px 0px 6px 1px #2B5987;
+    color: #F9F4F4; 
+    border-color: #2B5987;
+}
+
+#bug{
+    background-image: url("../pokeImages/bug.jpg");
+    box-shadow: 0px 0px 6px 1px #1C6B2C ;
+    border-color: #1C6B2C  ;
+    color: #F9F4F4;
+}
+
+#ghost{
+    background-image: url("../pokeImages/ghost.jpg");
+    box-shadow: 0px 0px 6px 1px #5F1B8E;
+    color: #F9F4F4; 
+    border-color: #5F1B8E;
+}
+
+#water{
+    background-image: url("../pokeImages/water.jpg"); 
+    box-shadow: 0px 0px 6px 1px #283EAB;
+    border-color: #283EAB ;
+}
+
+#ice{
+    background-image: url("../pokeImages/ice.jpg");
+    box-shadow: 0px 0px 6px 1px #4AB5E0 ;
+    border-color:#4AB5E0 ;
+    color: #F9F4F4;
+}
+
+#fighting{
+    background-image: url("../pokeImages/fighting.jpg");
+    box-shadow: 0px 0px 6px 1px #F1C40F;
+    color: #F9F4F4;
+    border-color: #F1C40F;
+}
+
+#flying{
+    background-image: url("../pokeImages/flying.jpg");
+    box-shadow: 0px 0px 6px 1px #3f89cf;
+    color: #F9F4F4;
+    border-color: #3f89cf;
+}
+
+
+
+#poison{
+    background-image: url("../pokeImages/poison.jpg");
+    box-shadow: 0px 0px 6px 1px #4f196e;
+    color: #F9F4F4;
+    border-color: #4f196e;
+
+}
+
+#ground{
+    background-image: url("../pokeImages/ground.jpg");
+    box-shadow: 0px 0px 6px 1px #b67d13;
+    color: #F9F4F4;
+    border-color: #b67d13;
+
+}
+
+#rock{
+    background-image: url("../pokeImages/rock.jpg");
+    box-shadow: 0px 0px 6px 1px #8a7b7b70;
+    color: #F9F4F4;
+    border-color: #8a7b7b70;
+
+}
+
+#steel{
+    background-image: url("../pokeImages/steel.jpg");
+    box-shadow: 0px 0px 6px 1px #2b2925;
+    color: #F9F4F4;
+    border-color: #2b2925;
+
+}
+
+#psychic{
+    background-image: url("../pokeImages/psychic.jpg");
+    box-shadow: 0px 0px 6px 1px #691662;
+    color: #F9F4F4;
+    border-color: #691662;
+
+}
+
+#dragon{
+    background-image: url("../pokeImages/dragon.jpg");
+    box-shadow: 0px 0px 6px 1px #c4c120;
+    color: #F9F4F4;
+    border-color: #c4c120;
+
+}
+
+#dark{
+    background-image: url("../pokeImages/dark.jpg");
+    box-shadow: 0px 0px 6px 1px #141412;
+    color: #F9F4F4;
+    border-color: #141412;
+
+}
+
+#fairy{
+    background-image: url("../pokeImages/fairy.jpg");
+    box-shadow: 0px 0px 6px 1px #811b8f;
+    color: #F9F4F4;
+    border-color: #811b8f;
+
+}
+
+
