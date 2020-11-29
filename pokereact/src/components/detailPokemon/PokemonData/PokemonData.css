@@ -1,0 +1,17 @@
+#dataContent {
+  margin-left: 50px;
+  background-color: wheat;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+#attacksTitle{
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+#pkmAttacks {
+  overflow: scroll;
+  margin: 10px;
+  max-height: 250px;
+}

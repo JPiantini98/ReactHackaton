@@ -9,6 +9,8 @@ import { Navbar } from "../components/navbar/Navbar";
 import { Favorites } from "../components/favorites/Favorites";
 import { Home } from "../components/home/Home";
 import { AboutUs } from "../components/aboutUs/AboutUs";
+import PerType from "../components/perType/perType";
+import DetailPokemon from "../components/detailPokemon/DetailPokemon";
 
 export const AppRouter = ({ title }) => {
     return (
@@ -23,6 +25,12 @@ export const AppRouter = ({ title }) => {
                 </Route>
                 <Route exact path="/about-us">
                     <AboutUs />
+                </Route>
+                <Route exact path="/per-type/:typeName" 
+                        component={PerType}>
+                </Route>
+                <Route exact path="/pokemon-detail/:pokemon" 
+                        component={DetailPokemon}>
                 </Route>
                 <Route exact path="*">
                     <Home />

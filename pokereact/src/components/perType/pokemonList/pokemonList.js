@@ -6,7 +6,7 @@ function pokemonList(props) {
     
     if (props.listOfPokemonFromState) {
         pokemonThatWillBeRendered = props.listOfPokemonFromState.map((element) => {
-            return <Pokemon key={element.pokemon.name} pokemonName={element.pokemon.name} pokemonUrl={element.pokemon.url} />;
+            return <Pokemon key={element.pokemon.name} pokemonName={element.pokemon.name} pokemonURL={element.pokemon.url} />;
         });
     } else {
         pokemonThatWillBeRendered = <p>Loading...</p>;
