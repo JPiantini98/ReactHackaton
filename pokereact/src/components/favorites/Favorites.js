@@ -18,10 +18,8 @@ export const Favorites = () => {
     return (
         <Layout>
             <h1>Favorites</h1>
-            <div>
-                <ul>
-                    { getFavoriteStorage().map( pokemon =><li>{ <PokeCard pokemonName={pokemon} /> }</li> ) }
-                </ul>
+            <div className="row">
+                {getFavoriteStorage().map( pokemon =><PokeCard key={pokemon} fromFavorites={"true"} pokemonName={pokemon}/>) }
             </div>
         </Layout>
     )
