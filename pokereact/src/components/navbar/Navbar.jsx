@@ -1,7 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from "axios";
+
 
 export const Navbar = () => {
+    let history = useHistory();
+
+    const pokemonSearchHandler = () => {
+        let userInput = document.querySelector("#pokemonSearchInput").value;
+        userInput = userInput.trim().toLowerCase();
+
+        if (userInput) {
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${userInput}`)
+            .then((response) => {
+                if (response.data.id < 810) {   // Excludes generation 8 and alternate forms
+                    history.push("/pokemon-detail/" + userInput, {params: response.data});
+                } else {
+                    throw { message: "Invalid ID"};
+                }
+            })
+            .catch((error) => {
+                history.push("/home");
+            });
+        }
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             
@@ -22,10 +45,10 @@ export const Navbar = () => {
                         <Link className="nav-link" to="/about-us">About Us</Link>
                     </li>
                 </ul>
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search a Pokemon" aria-label="Search" />
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <div className="form-inline my-2 my-lg-0">
+                    <input id="pokemonSearchInput" className="form-control mr-sm-2" type="text" placeholder="Search a Pokemon" aria-label="Search" />
+                    <button onClick={() => {pokemonSearchHandler()}} className="btn btn-outline-success my-2 my-sm-0">Search</button>
+                </div>
             </div>
         </nav>
 

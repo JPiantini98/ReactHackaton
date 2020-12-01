@@ -21,7 +21,6 @@ function PokeCard(props){
     useEffect(() => {
         if(!pokemonData.abilities ){
             axios.get(`https://pokeapi.co/api/v2/pokemon/${props.pokemonName}`).then(response =>{
-            console.log(response)
                 setPokemonData({
                     types: response.data.types,
                     images: response.data.sprites.other['official-artwork'].front_default,

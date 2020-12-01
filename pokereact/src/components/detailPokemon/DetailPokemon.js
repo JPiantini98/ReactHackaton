@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect, useLocation } from 'react-router-dom';
 import axios from 'axios';
+
 import Profile from './PokemonProfile/PokemonProfile';
 import PokemonData from './PokemonData/PokemonData';
 import '../perType/perType.css';
-import { Redirect } from 'react-router-dom';
 
 // Function for making sure that the value passed to URL will be an integer
 function isInt(value) {
@@ -13,13 +14,11 @@ function isInt(value) {
 }
 
 export default function DetailPokemon(props) {
-    //Variable to store the wanted pokemon (this is just temporary)
-    let pkmName = props.match.params.pokemon;
-    
+    const location = useLocation(); // To receive object from search bar in Home 
+    let pkmName; //Variable to store the wanted pokemon
     //Excludes the 8th generation
     const highestValidID = 809;
 
-    //Constructor to store the data from the api
     const [pokemonData, setPokemonData] = useState({
         image: null,
         id: null,
@@ -35,11 +34,29 @@ export default function DetailPokemon(props) {
         redirect: null 
      });
 
+    if (location.state) {
+        pkmName = 1; // Prevents redirect
+
+        if (!pokemonData.abilities || pokemonData.id !== location.state.params.id) {
+            setPokemonData({
+                image: location.state.params.sprites.other['official-artwork'].front_default,
+                id: location.state.params.id,
+                name: location.state.params.name,
+                types: location.state.params.types,
+                height: location.state.params.height,
+                weight: location.state.params.weight,
+                abilities: location.state.params.abilities,
+                moves: location.state.params.moves
+            });
+        }
+    } else {
+        pkmName = props.match.params.pokemon; //If value didn't come from search bar then it came from URL
+    }
+
     //Make an HTTP request  to the API to get the selected data
     useEffect(() => {
-
         // Prevents invalid URLs if the ID param isn't an integer or outside of a certain range
-        if ( !redirectState.redirect && (!isInt(pkmName) || ( 0 >= +pkmName || +pkmName > highestValidID ))) {
+        if (!redirectState.redirect && (!isInt(pkmName) || ( 0 >= +pkmName || +pkmName > highestValidID ))) {
             setRedirectState({
                 redirect: <Redirect to="/home"/>
             }); 
@@ -95,7 +112,6 @@ export default function DetailPokemon(props) {
                 abilities = {pkmAbilities}
                 attacks = {pkmAttack}
             />
-
         </div>
     );
 }
