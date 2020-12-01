@@ -14,8 +14,8 @@ export const AboutUs = () => {
                 <div class="container py-5">
                     <div class="row mb-4">
                         <div class="col-lg-8">
-                            <h2 class="display-4 font-weight-light white">The team</h2>
-                            <p class="font-italic">We're a group of stars in the making, determined to tackle any challenge that may come our way.</p>
+                            <h2 class="display-4 font-weight-light white-text">The team</h2>
+                            <p class="font-italic white-text">We're a group of stars in the making, determined to tackle any challenge that may come our way.</p>
                         </div>
                     </div>
                     <div class="row text-center">
