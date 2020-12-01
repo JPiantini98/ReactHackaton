@@ -102,7 +102,13 @@ export default function DetailPokemon(props) {
     return(
         <div className="row mx-auto">
             {redirectState.redirect}
-            <Profile image={pokemonData.image} types={pkmTypes}/>
+            
+            <Profile 
+                id={pokemonData.id} 
+                name={pokemonData.name} 
+                image={pokemonData.image} 
+                types={pkmTypes}
+            />
 
             <PokemonData 
                 id = {pokemonData.id}
