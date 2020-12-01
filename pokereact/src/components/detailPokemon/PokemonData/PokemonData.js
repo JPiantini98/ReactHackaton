@@ -11,7 +11,7 @@ const PokemonData = (props) => {
                 <h5>Abilites: </h5>
                 <ul className="text-capitalize">{props.abilities}</ul>
             </div>
-            <h5 id="attacksTitle">Attacks List: </h5>
+            <h5 id="attacksTitle">Move List: </h5>
             <ul id = "pkmAttacks">{props.attacks}</ul>
         </div>
     );
